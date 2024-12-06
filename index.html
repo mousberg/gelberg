@@ -30,6 +30,7 @@
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
+            cursor: none;
         }
 
         .container {
@@ -622,6 +623,23 @@
                 fill: url(#gradient1);
             }
         }
+
+        .custom-cursor {
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: difference;
+            transition: transform 0.2s ease;
+        }
+
+        a:hover ~ .custom-cursor,
+        button:hover ~ .custom-cursor {
+            transform: scale(1.5);
+        }
     </style>
 </head>
 <body>
@@ -741,6 +759,12 @@
                 toggleOverlay();
             }
         });
+
+        document.addEventListener('mousemove', (e) => {
+            const cursor = document.querySelector('.custom-cursor');
+            cursor.style.left = e.clientX - 10 + 'px';
+            cursor.style.top = e.clientY - 10 + 'px';
+        });
     </script>
 
     <svg width="0" height="0">
@@ -755,5 +779,7 @@
             </linearGradient>
         </defs>
     </svg>
+
+    <div class="custom-cursor"></div>
 </body>
 </html>
