@@ -347,7 +347,7 @@
         }
 
         .overlay-title {
-            font-size: 36px;
+            font-size: 20px;
             color: #333;
             margin-bottom: 20px;
             font-weight: 600;
@@ -414,10 +414,6 @@
                 grid-template-columns: 1fr;
             }
 
-            .overlay-title {
-                font-size: 28px;
-            }
-
             .overlay-text,
             .overlay-text p {
                 font-size: 13px !important;
@@ -447,13 +443,7 @@
             margin: 0 2px;
         }
 
-        .eleven-labs-logo, .a16z-logo {
-            height: 30px;
-            width: auto;
-            transition: filter 0.2s ease;
-        }
-
-        .eleven-labs-logo:hover, .a16z-logo:hover {
+        .eleven-labs-logo:hover {
             filter: brightness(50%);
         }
 
@@ -463,6 +453,174 @@
             gap: 30px;
             margin: 20px 0 30px;
             align-items: center;
+        }
+
+        .eleven-labs-link {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .eleven-labs-logo {
+            height: 24px;
+            width: auto;
+            transition: opacity 0.2s ease;
+            opacity: 1;
+        }
+
+        .eleven-labs-logo:hover {
+            opacity: 0.7;
+        }
+
+        .overlay-button svg {
+            width: 30px;
+            height: 30px;
+            filter: drop-shadow(0 0 1px rgba(0, 0, 0, 1))
+                   drop-shadow(0 0 2px rgba(0, 0, 0, 1))
+                   drop-shadow(0 0 4px rgba(0, 0, 0, 1))
+                   drop-shadow(0 0 8px rgba(0, 0, 0, 1))
+                   drop-shadow(0 0 12px rgba(0, 0, 0, 1));
+            transition: all 0.3s ease;
+        }
+
+        .overlay-button:hover svg {
+            animation: shadowColorChange 3s infinite;
+        }
+
+        @keyframes shadowColorChange {
+            0% {
+                filter: drop-shadow(0 0 1px rgba(255, 126, 95, 0.8))
+                       drop-shadow(0 0 2px rgba(255, 126, 95, 0.8))
+                       drop-shadow(0 0 4px rgba(255, 126, 95, 0.8))
+                       drop-shadow(0 0 8px rgba(255, 126, 95, 0.6))
+                       drop-shadow(0 0 12px rgba(254, 180, 123, 0.4));
+            }
+            50% {
+                filter: drop-shadow(0 0 1px rgba(106, 17, 203, 0.8))
+                       drop-shadow(0 0 2px rgba(106, 17, 203, 0.8))
+                       drop-shadow(0 0 4px rgba(106, 17, 203, 0.8))
+                       drop-shadow(0 0 8px rgba(106, 17, 203, 0.6))
+                       drop-shadow(0 0 12px rgba(37, 117, 252, 0.4));
+            }
+            100% {
+                filter: drop-shadow(0 0 1px rgba(255, 126, 95, 0.8))
+                       drop-shadow(0 0 2px rgba(255, 126, 95, 0.8))
+                       drop-shadow(0 0 4px rgba(255, 126, 95, 0.8))
+                       drop-shadow(0 0 8px rgba(255, 126, 95, 0.6))
+                       drop-shadow(0 0 12px rgba(254, 180, 123, 0.4));
+            }
+        }
+
+        .logo-container {
+            margin: 20px 0 30px;
+        }
+
+        .overlay-images {
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .overlay-title {
+                font-size: 28px;
+            }
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0 30px;
+            align-items: center;
+        }
+
+        .eleven-labs-logo, .a16z-logo {
+            height: 24px;
+            width: auto;
+            transition: opacity 0.2s ease;
+            opacity: 1;
+        }
+
+        .eleven-labs-logo:hover, .a16z-logo:hover {
+            opacity: 0.7;
+        }
+
+        .overlay-button svg {
+            width: 30px;
+            height: 30px;
+            filter: drop-shadow(0 0 1px rgba(0, 0, 0, 1))
+                   drop-shadow(0 0 2px rgba(0, 0, 0, 1))
+                   drop-shadow(0 0 4px rgba(0, 0, 0, 1))
+                   drop-shadow(0 0 8px rgba(0, 0, 0, 1))
+                   drop-shadow(0 0 12px rgba(0, 0, 0, 1));
+            transition: all 0.3s ease;
+        }
+
+        .overlay-button:hover svg {
+            animation: shadowColorChange 3s infinite;
+        }
+
+        @keyframes shadowColorChange {
+            0% {
+                filter: drop-shadow(0 0 1px rgba(255, 126, 95, 0.8))
+                       drop-shadow(0 0 2px rgba(255, 126, 95, 0.8))
+                       drop-shadow(0 0 4px rgba(255, 126, 95, 0.8))
+                       drop-shadow(0 0 8px rgba(255, 126, 95, 0.6))
+                       drop-shadow(0 0 12px rgba(254, 180, 123, 0.4));
+            }
+            50% {
+                filter: drop-shadow(0 0 1px rgba(106, 17, 203, 0.8))
+                       drop-shadow(0 0 2px rgba(106, 17, 203, 0.8))
+                       drop-shadow(0 0 4px rgba(106, 17, 203, 0.8))
+                       drop-shadow(0 0 8px rgba(106, 17, 203, 0.6))
+                       drop-shadow(0 0 12px rgba(37, 117, 252, 0.4));
+            }
+            100% {
+                filter: drop-shadow(0 0 1px rgba(255, 126, 95, 0.8))
+                       drop-shadow(0 0 2px rgba(255, 126, 95, 0.8))
+                       drop-shadow(0 0 4px rgba(255, 126, 95, 0.8))
+                       drop-shadow(0 0 8px rgba(255, 126, 95, 0.6))
+                       drop-shadow(0 0 12px rgba(254, 180, 123, 0.4));
+            }
+        }
+
+        .overlay-button {
+            position: fixed;
+            top: 50px;
+            right: 50px;
+            transform: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .overlay-button svg {
+            width: 30px;
+            height: 30px;
+            filter: drop-shadow(0 0 1px rgba(0, 0, 0, 1))
+                   drop-shadow(0 0 2px rgba(0, 0, 0, 1))
+                   drop-shadow(0 0 4px rgba(0, 0, 0, 1))
+                   drop-shadow(0 0 8px rgba(0, 0, 0, 1))
+                   drop-shadow(0 0 12px rgba(0, 0, 0, 1));
+            transition: all 0.3s ease;
+        }
+
+        .overlay-button:hover .circle {
+            animation: gradientMove 3s infinite;
+        }
+
+        @keyframes gradientMove {
+            0% {
+                fill: url(#gradient1);
+            }
+            50% {
+                fill: url(#gradient2);
+            }
+            100% {
+                fill: url(#gradient1);
+            }
         }
     </style>
 </head>
@@ -507,7 +665,7 @@
                         <span>T1V</span>
                     </a>
                     <a href="https://www.workshoplab.org" target="_blank" rel="noopener" class="project-link">
-                        <svg class="project-icon" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M0 0H30V30H0V0Z" fill="white"/>
                             <path d="M8.55898 21.1237L4.40991 8.88482H7.27433L9.79155 17.1135L12.5171 8.8501H14.8086L17.5342 17.1135L20.0514 8.88482H22.8463L18.6973 21.1237H16.3241L13.6281 13.1728L10.8852 21.1237H8.55898Z" fill="black"/>
                             <path d="M16.3241 21.1237L20.0514 8.88482H22.8463L19.5212 18.6933H25.5799V21.1237H16.3241Z" fill="black"/>
@@ -559,19 +717,6 @@
         </svg>
     </button>
 
-    <svg width="0" height="0">
-        <defs>
-            <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color: #ff7e5f; stop-opacity: 1" />
-                <stop offset="100%" style="stop-color: #feb47b; stop-opacity: 1" />
-            </linearGradient>
-            <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color: #6a11cb; stop-opacity: 1" />
-                <stop offset="100%" style="stop-color: #2575fc; stop-opacity: 1" />
-            </linearGradient>
-        </defs>
-    </svg>
-
     <script>
         function toggleOverlay() {
             const overlay = document.getElementById('overlay');
@@ -597,5 +742,18 @@
             }
         });
     </script>
+
+    <svg width="0" height="0">
+        <defs>
+            <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color: #ff7e5f; stop-opacity: 1" />
+                <stop offset="100%" style="stop-color: #feb47b; stop-opacity: 1" />
+            </linearGradient>
+            <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color: #6a11cb; stop-opacity: 1" />
+                <stop offset="100%" style="stop-color: #2575fc; stop-opacity: 1" />
+            </linearGradient>
+        </defs>
+    </svg>
 </body>
 </html>
