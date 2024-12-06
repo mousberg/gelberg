@@ -142,10 +142,15 @@
         }
 
         .project-link:hover {
-            color: #000;
+            color: rgba(0,0,0,1);
         }
 
-        .project-link:hover .project-icon {
+        .project-link svg {
+            opacity: 0.5;
+            transition: opacity 0.3s;
+        }
+
+        .project-link:hover svg {
             opacity: 1;
         }
 
@@ -214,6 +219,251 @@
                 gap: 0px;
             }
         }
+
+        .overlay-button {
+            position: fixed;
+            top: 50px;
+            right: 50px;
+            transform: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .overlay-button svg {
+            width: 30px;
+            height: 30px;
+            filter: drop-shadow(0 0 1px rgba(0, 0, 0, 1))
+                   drop-shadow(0 0 2px rgba(0, 0, 0, 1))
+                   drop-shadow(0 0 4px rgba(0, 0, 0, 1))
+                   drop-shadow(0 0 8px rgba(0, 0, 0, 1))
+                   drop-shadow(0 0 12px rgba(0, 0, 0, 1));
+            transition: all 0.3s ease;
+        }
+
+        .overlay-button:hover svg {
+            animation: shadowColorChange 3s infinite;
+        }
+
+        .overlay-button:hover .circle {
+            animation: gradientMove 3s infinite;
+        }
+
+        @keyframes shadowColorChange {
+            0% {
+                filter: drop-shadow(0 0 1px rgba(255, 126, 95, 0.8))
+                       drop-shadow(0 0 2px rgba(255, 126, 95, 0.8))
+                       drop-shadow(0 0 4px rgba(255, 126, 95, 0.8))
+                       drop-shadow(0 0 8px rgba(255, 126, 95, 0.6))
+                       drop-shadow(0 0 12px rgba(254, 180, 123, 0.4));
+            }
+            50% {
+                filter: drop-shadow(0 0 1px rgba(106, 17, 203, 0.8))
+                       drop-shadow(0 0 2px rgba(106, 17, 203, 0.8))
+                       drop-shadow(0 0 4px rgba(106, 17, 203, 0.8))
+                       drop-shadow(0 0 8px rgba(106, 17, 203, 0.6))
+                       drop-shadow(0 0 12px rgba(37, 117, 252, 0.4));
+            }
+            100% {
+                filter: drop-shadow(0 0 1px rgba(255, 126, 95, 0.8))
+                       drop-shadow(0 0 2px rgba(255, 126, 95, 0.8))
+                       drop-shadow(0 0 4px rgba(255, 126, 95, 0.8))
+                       drop-shadow(0 0 8px rgba(255, 126, 95, 0.6))
+                       drop-shadow(0 0 12px rgba(254, 180, 123, 0.4));
+            }
+        }
+
+        @keyframes gradientMove {
+            0% {
+                fill: url(#gradient1);
+            }
+            50% {
+                fill: url(#gradient2);
+            }
+            100% {
+                fill: url(#gradient1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .overlay-button {
+                right: 20px;
+                top: 20px;
+            }
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            z-index: 1000;
+            overflow-y: auto;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .overlay-content {
+            position: relative;
+            margin: 40px auto;
+            width: 853px;
+            height: 575px;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid #cfcfcf;
+            will-change: transform;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            overflow-y: auto;
+            z-index: 1001;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 40px;
+            cursor: pointer;
+            color: #666;
+            padding: 10px;
+            z-index: 1001;
+            transition: color 0.3s ease;
+        }
+
+        .close-button:hover {
+            color: #000;
+        }
+
+        .overlay-title {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .overlay-text {
+            font-size: 14px !important;
+            line-height: 1.5;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .overlay-text p {
+            margin-bottom: 15px;
+            font-weight: 300;
+            font-size: 14px !important;
+            background: none !important;
+            -webkit-background-clip: unset !important;
+            -webkit-text-fill-color: #666 !important;
+            background-clip: unset !important;
+        }
+
+        .overlay-text em {
+            font-style: italic;
+        }
+
+        .overlay-images {
+            display: grid;
+            grid-template-columns: 307px 460px;
+            gap: 20px;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .overlay-images img {
+            display: block;
+            height: 191px;
+            border-radius: 10px;
+            object-position: center center;
+            object-fit: cover;
+            -webkit-font-smoothing: inherit;
+            box-shadow: 
+                0 20px 40px -18px rgba(50, 50, 93, 0.3),
+                0 10px 20px -18px rgba(0, 0, 0, 0.25),
+                0 0 1px rgba(0, 0, 0, 0.25);
+        }
+
+        .overlay-images img:first-child {
+            width: 307px;
+        }
+
+        .overlay-images img:last-child {
+            width: 461px;
+        }
+
+        @media (max-width: 900px) {
+            .overlay-content {
+                width: 90%;
+                height: 90%;
+                padding: 20px;
+            }
+
+            .overlay-images {
+                grid-template-columns: 1fr;
+            }
+
+            .overlay-title {
+                font-size: 28px;
+            }
+
+            .overlay-text,
+            .overlay-text p {
+                font-size: 13px !important;
+            }
+
+            .overlay-images img:first-child,
+            .overlay-images img:last-child {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 307/191;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-font-smoothing: inherit;
+        }
+
+        :root {
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .eleven-labs-link {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            margin: 0 2px;
+        }
+
+        .eleven-labs-logo, .a16z-logo {
+            height: 30px;
+            width: auto;
+            transition: filter 0.2s ease;
+        }
+
+        .eleven-labs-logo:hover, .a16z-logo:hover {
+            filter: brightness(50%);
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0 30px;
+            align-items: center;
+        }
     </style>
 </head>
 <body>
@@ -257,7 +507,7 @@
                         <span>T1V</span>
                     </a>
                     <a href="https://www.workshoplab.org" target="_blank" rel="noopener" class="project-link">
-                        <svg class="project-icon" viewBox="0 0 30 30" fill="none">
+                        <svg class="project-icon" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M0 0H30V30H0V0Z" fill="white"/>
                             <path d="M8.55898 21.1237L4.40991 8.88482H7.27433L9.79155 17.1135L12.5171 8.8501H14.8086L17.5342 17.1135L20.0514 8.88482H22.8463L18.6973 21.1237H16.3241L13.6281 13.1728L10.8852 21.1237H8.55898Z" fill="black"/>
                             <path d="M16.3241 21.1237L20.0514 8.88482H22.8463L19.5212 18.6933H25.5799V21.1237H16.3241Z" fill="black"/>
@@ -276,5 +526,76 @@
             </div>
         </div>
     </div>
+
+    <div id="overlay" class="overlay">
+        <div class="overlay-content">
+            <button class="close-button" onclick="toggleOverlay()">×</button>
+            <div class="overlay-text">
+                <h3 class="overlay-title">November 2023</h3>
+                <p>I participated in the Consumer AI Hackathon in London, hosted by Eleven Labs and backed by industry heavyweights like a16z, Synthesia, and AI Tinkerers. This event brought together forward-thinking minds to create innovative consumer AI solutions, with judges including Eleven Labs' CEO Mati Staniszewski and a16z General Partner Sriram Krishnan. It was a fast-paced weekend packed with ideation, development, and pitching.</p>
+                
+                <p>Our team's idea, 6Sense, stood out and won the AI Tinkerers community prize. The project was essentially "a set of eyes inside your ears" - an assistive AI solution for real-time contextual awareness. 6Sense uses live video feeds, action recognition, and real-time feedback to offer enhanced auditory insights. Designed to help users navigate the world with more confidence, it's especially useful for those with vision impairments, ADHD, or dementia, as well as general users needing hands-free assistance or safety alerts.</p>
+                
+                <div class="logo-container">
+                    <a href="https://elevenlabs.io" target="_blank" rel="noopener" class="eleven-labs-link">
+                        <img src="11labs/11labs.svg" alt="Eleven Labs" class="eleven-labs-logo">
+                    </a>
+                    <a href="https://a16z.com" target="_blank" rel="noopener" class="a16z-link">
+                        <img src="11labs/a16z.svg" alt="a16z" class="a16z-logo">
+                    </a>
+                </div>
+
+                <div class="overlay-images">
+                    <img src="11labs/prototype.jpg" alt="Hackathon Image 1">
+                    <img src="11labs/team.jpg" alt="Hackathon Image 2">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="overlay-button" onclick="toggleOverlay()">
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle class="circle" cx="15" cy="15" r="10" fill="white" stroke="white"/>
+        </svg>
+    </button>
+
+    <svg width="0" height="0">
+        <defs>
+            <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color: #ff7e5f; stop-opacity: 1" />
+                <stop offset="100%" style="stop-color: #feb47b; stop-opacity: 1" />
+            </linearGradient>
+            <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color: #6a11cb; stop-opacity: 1" />
+                <stop offset="100%" style="stop-color: #2575fc; stop-opacity: 1" />
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <script>
+        function toggleOverlay() {
+            const overlay = document.getElementById('overlay');
+            if (overlay.style.display === 'block') {
+                overlay.style.display = 'none';
+                document.body.style.overflow = '';
+            } else {
+                overlay.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        // Add click outside to close
+        document.addEventListener('click', function(event) {
+            const overlay = document.getElementById('overlay');
+            const overlayContent = document.querySelector('.overlay-content');
+            const overlayButton = document.querySelector('.overlay-button');
+            
+            if (event.target === overlay && overlay.style.display === 'block' && 
+                !overlayContent.contains(event.target) && 
+                !overlayButton.contains(event.target)) {
+                toggleOverlay();
+            }
+        });
+    </script>
 </body>
 </html>
