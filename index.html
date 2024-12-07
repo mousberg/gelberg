@@ -33,6 +33,10 @@
             cursor: none;
         }
 
+        a, button {
+            cursor: none;
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -293,6 +297,21 @@
             .overlay-button {
                 right: 20px;
                 top: 20px;
+            }
+            .custom-cursor {
+                display: none;
+            }
+            body, a, button {
+                cursor: auto;
+            }
+        }
+
+        @media (hover: none) and (pointer: coarse) {
+            .custom-cursor {
+                display: none;
+            }
+            body, a, button {
+                cursor: auto;
             }
         }
 
@@ -636,8 +655,12 @@
             transition: transform 0.2s ease;
         }
 
+        a:hover + .custom-cursor,
+        button:hover + .custom-cursor,
         a:hover ~ .custom-cursor,
-        button:hover ~ .custom-cursor {
+        button:hover ~ .custom-cursor,
+        a:hover .custom-cursor,
+        button:hover .custom-cursor {
             transform: scale(1.5);
         }
     </style>
