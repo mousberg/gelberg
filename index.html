@@ -4,7 +4,28 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>David Gelberg</title>
-    <meta name="description" content="David Gelberg - Quantitative Developer and Machine Learning Engineer" />
+    <meta name="description" content="David Gelberg - Quantitative Developer and Machine Learning Engineer specializing in AI algorithms, startup fundraising, and sports betting technology." />
+
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="David Gelberg, Quantitative Developer, Machine Learning Engineer, AI, Startup Advisor, Sports Betting Technology, Fundraising Strategy" />
+    <meta name="author" content="David Gelberg" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://gelberg.co/" />
+    <meta property="og:title" content="David Gelberg - Quantitative Developer & ML Engineer" />
+    <meta property="og:description" content="Quantitative Developer and Machine Learning Engineer specializing in AI algorithms, startup fundraising, and sports betting technology." />
+    <meta property="og:image" content="https://gelberg.co/favicons/android-chrome-512x512.png" />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="David Gelberg - Quantitative Developer & ML Engineer" />
+    <meta name="twitter:description" content="Quantitative Developer and Machine Learning Engineer specializing in AI algorithms, startup fundraising, and sports betting technology." />
+    <meta name="twitter:image" content="https://gelberg.co/favicons/android-chrome-512x512.png" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://gelberg.co/" />
 
     <!-- Favicon links -->
     <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png" />
@@ -141,9 +162,28 @@
             font-size: 20px;
             transition: color 0.3s;
             position: relative;
-            transform: translateZ(0);
-            -webkit-transform: translateZ(0);
-            margin: 0;
+        }
+
+        .project-link .tooltip {
+            position: absolute;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            width: 200px;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+            z-index: 1000;
+        }
+
+        .project-link:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
         }
 
         .project-link:hover {
@@ -167,7 +207,7 @@
             position: relative;
             transform: translateZ(0);
             -webkit-transform: translateZ(0);
-            will-change: opacity;
+            margin: 0;
         }
 
         @media (min-width: 810px) and (max-width: 1199px) {
@@ -663,19 +703,33 @@
         button:hover .custom-cursor {
             transform: scale(1.5);
         }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .skill {
+            background: rgba(0,0,0,0.05);
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 14px;
+            color: rgba(0,0,0,0.7);
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <!-- Logo -->
         <a href="/">
-            <svg class="logo" viewBox="0 0 28 28">
+            <svg class="logo" viewBox="0 0 28 28" aria-label="David Gelberg logo">
                 <path d="M14 28L5 28L5 10L5 10L5 1L23 1L28 7.5L23 14.5L14 1L14 10L14 10ZM14 28L23 14.5L28 21L23 28Z" fill="black"/>
             </svg>
         </a>
 
         <div class="content">
-            <h2>Hello, שלום</h2>
+            <h2>Hello, <span lang="he">שלום</span></h2>
             <h2>I'm David Gelberg</h2>
             
             <p>Ex-salesman turned self-taught coder, now a Quantitative Developer and Machine Learning Engineer with a passion for the investor-startup world. I've developed algorithms for top sports bettors and recently helped startups with fundraising strategies and partnerships.</p>
@@ -691,6 +745,7 @@
                 <div class="links">
                     <a href="http://linkedin.com/in/davidgelberg/" target="_blank" rel="noopener">Linkedin</a>
                     <a href="mailto:davidgelberg@gmail.com" target="_blank" rel="noopener">Mail</a>
+                    <a href="/resume.pdf" target="_blank" rel="noopener">Resume</a>
                 </div>
             </div>
 
@@ -698,12 +753,13 @@
                 <h2 class="section-title">Latest Projects</h2>
                 <div class="projects">
                     <a href="https://t1v.co" target="_blank" rel="noopener" class="project-link">
-                        <svg class="project-icon" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="project-icon" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="T1V logo">
                             <rect width="30" height="30" fill="white"/>
                             <path d="M10.0897 22.5V10.2181H6.2843V7.5H16.9554V10.2181H13.2105V22.5H10.0897Z" fill="black"/>
                             <path d="M20.5949 22.5V10.1376H17.6754V7.5H23.7157V22.5H20.5949Z" fill="black"/>
                         </svg>
                         <span>T1V</span>
+                        <div class="tooltip">Developed quantitative algorithms for sports betting analysis and prediction</div>
                     </a>
                     <a href="https://www.workshoplab.org" target="_blank" rel="noopener" class="project-link">
                         <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -721,6 +777,17 @@
                         </svg>
                         <span>Warestack</span>
                     </a>
+                </div>
+            </div>
+
+            <div class="column">
+                <h2 class="section-title">Skills</h2>
+                <div class="skills">
+                    <span class="skill">Python</span>
+                    <span class="skill">Machine Learning</span>
+                    <span class="skill">AI</span>
+                    <span class="skill">Quantitative Analysis</span>
+                    <span class="skill">Algorithm Development</span>
                 </div>
             </div>
         </div>
@@ -804,5 +871,35 @@
     </svg>
 
     <div class="custom-cursor"></div>
+
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Person",
+        "name": "David Gelberg",
+        "jobTitle": "Quantitative Developer and Machine Learning Engineer",
+        "url": "https://gelberg.co",
+        "sameAs": [
+            "http://linkedin.com/in/davidgelberg/"
+        ],
+        "description": "Ex-salesman turned self-taught coder, now a Quantitative Developer and Machine Learning Engineer with expertise in AI algorithms, startup fundraising, and sports betting technology.",
+        "knowsAbout": [
+            "Machine Learning",
+            "Artificial Intelligence",
+            "Quantitative Development",
+            "Startup Fundraising",
+            "Sports Betting Technology"
+        ]
+    }
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
 </body>
 </html>
