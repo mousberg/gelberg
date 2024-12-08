@@ -124,7 +124,7 @@
         }
 
         .section-title {
-            color: #717171;
+            color: rgba(0, 0, 0, 0.5);
             font-weight: 200;
             margin-bottom: 25px;
             font-size: 20px;
@@ -132,13 +132,12 @@
 
         .links a {
             display: block;
-            color: rgb(0, 0, 0);
+            color: rgba(0, 0, 0, 0.5);
             text-decoration: none;
             font-weight: 200;
             font-size: 20px;
             margin-bottom: 20px;
             transition: opacity 0.3s, color 0.3s;
-            opacity: 0.5;
         }
 
         .links a:hover {
@@ -156,7 +155,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            color: rgba(0,0,0,0.7);
+            color: rgba(0,0,0,0.5);
             text-decoration: none;
             font-weight: 200;
             font-size: 20px;
@@ -166,10 +165,10 @@
 
         .project-link .tooltip {
             position: absolute;
-            background: rgba(0,0,0,0.8);
-            color: white;
+            background: rgba(255, 255, 255, 0.5);
+            color: rgba(0,0,0,0.5);
             padding: 10px;
-            border-radius: 5px;
+            border-radius: 15px;
             font-size: 14px;
             width: 200px;
             top: 100%;
@@ -179,11 +178,17 @@
             visibility: hidden;
             transition: 0.3s;
             z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(207, 207, 207, 0.5);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
         }
 
         .project-link:hover .tooltip {
             opacity: 1;
             visibility: visible;
+            transform: translateX(-50%) translateY(5px);
+            background: rgba(255, 255, 255, 0.6);
         }
 
         .project-link:hover {
@@ -715,11 +720,20 @@
         }
         
         .skill {
-            background: rgba(0,0,0,0.05);
+            background: rgba(255, 255, 255, 0.5);
             padding: 5px 10px;
             border-radius: 15px;
             font-size: 14px;
-            color: rgba(0,0,0,0.8);
+            color: rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(207, 207, 207, 0.5);
+        }
+
+        .skill:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.8);
         }
     </style>
 </head>
@@ -763,15 +777,16 @@
                             <path d="M20.5949 22.5V10.1376H17.6754V7.5H23.7157V22.5H20.5949Z" fill="black"/>
                         </svg>
                         <span>T1V</span>
-                        <div class="tooltip">Developed quantitative algorithms for sports betting analysis and prediction</div>
+                        <div class="tooltip">Bridging the gap between top tier founders and investors</div>
                     </a>
                     <a href="https://www.workshoplab.org" target="_blank" rel="noopener" class="project-link">
-                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="project-icon" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M0 0H30V30H0V0Z" fill="white"/>
                             <path d="M8.55898 21.1237L4.40991 8.88482H7.27433L9.79155 17.1135L12.5171 8.8501H14.8086L17.5342 17.1135L20.0514 8.88482H22.8463L18.6973 21.1237H16.3241L13.6281 13.1728L10.8852 21.1237H8.55898Z" fill="black"/>
                             <path d="M16.3241 21.1237L20.0514 8.88482H22.8463L19.5212 18.6933H25.5799V21.1237H16.3241Z" fill="black"/>
                         </svg>
                         <span>Workshop Lab</span>
+                        <div class="tooltip">Helping founders join accelerators and secure initial funding</div>
                     </a>
                     <a href="https://warestack.com" target="_blank" rel="noopener" class="project-link">
                         <svg class="project-icon" viewBox="0 0 30 30">
@@ -780,6 +795,7 @@
                             <path d="M7.777 17.618L6.367 18.4C5.805 18.713 5.602 19.42 5.915 19.983C6.017 20.165 6.167 20.318 6.347 20.425L14.47 25.135C14.83 25.343 15.272 25.345 15.632 25.138L23.655 20.553C24.212 20.233 24.407 19.523 24.087 18.965C23.995 18.803 23.865 18.665 23.71 18.565L22.345 17.683C21.982 17.448 21.52 17.433 21.142 17.645L15.62 20.75C15.265 20.95 14.832 20.95 14.48 20.75L8.912 17.62C8.56 17.423 8.13 17.42 7.777 17.62Z" fill="transparent" stroke="black" stroke-width="1.25"/>
                         </svg>
                         <span>Warestack</span>
+                        <div class="tooltip">Building tools to streamline GitHub workflows and ensure code quality at every step</div>
                     </a>
                 </div>
             </div>
