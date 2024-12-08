@@ -36,6 +36,9 @@
     <link rel="icon" type="image/png" sizes="192x192" href="favicons/android-chrome-192x192.png" />
     <link rel="icon" type="image/png" sizes="512x512" href="favicons/android-chrome-512x512.png" />
 
+    <!-- Cookiebot Cookie Consent -->
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="YOUR_COOKIEBOT_ID" data-blockingmode="auto" type="text/javascript"></script>
+
     <style>
         * {
             margin: 0;
@@ -79,7 +82,7 @@
         .logo {
             position: absolute;
             top: 60px;
-            left: -40px;
+            left: 100px;
             width: 28px;
             height: 28px;
         }
@@ -224,6 +227,9 @@
                 left: 50%;
                 transform: translateX(-50%);
             }
+            header {
+                position: relative;
+            }
         }
 
         @media (max-width: 809px) {
@@ -240,6 +246,9 @@
             .logo {
                 left: 50%;
                 transform: translateX(-50%);
+            }
+            header {
+                position: relative;
             }
 
             h1, h2 {
@@ -735,82 +744,182 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             background: rgba(255, 255, 255, 0.8);
         }
+
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        .footer-links {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+        }
+        
+        .footer-links a {
+            color: rgba(0,0,0,0.5);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: rgba(0,0,0,1);
+        }
+
+        .cookie-consent {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid #cfcfcf;
+            padding: 20px;
+            border-radius: 15px;
+            max-width: 400px;
+            z-index: 9999;
+            display: none;
+        }
+
+        .cookie-consent p {
+            font-size: 14px;
+            margin-bottom: 15px;
+            background: none;
+            -webkit-background-clip: unset;
+            -webkit-text-fill-color: rgba(0, 0, 0, 0.7);
+            color: rgba(0, 0, 0, 0.7);
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .cookie-button {
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 1px solid rgba(207, 207, 207, 0.5);
+            background: rgba(255, 255, 255, 0.5);
+            cursor: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .cookie-button:hover {
+            background: rgba(255, 255, 255, 0.8);
+            transform: translateY(-2px);
+        }
+
+        .cookie-button.accept {
+            background: #000;
+            color: #fff;
+        }
+
+        .cookie-button.accept:hover {
+            background: #333;
+        }
+
+        @media (max-width: 768px) {
+            .cookie-consent {
+                bottom: 0;
+                right: 0;
+                left: 0;
+                border-radius: 15px 15px 0 0;
+                max-width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Logo -->
+    <header role="banner">
         <a href="/">
             <svg class="logo" viewBox="0 0 28 28" aria-label="David Gelberg logo">
                 <path d="M14 28L5 28L5 10L5 10L5 1L23 1L28 7.5L23 14.5L14 1L14 10L14 10ZM14 28L23 14.5L28 21L23 28Z" fill="black"/>
             </svg>
         </a>
+    </header>
 
-        <div class="content">
-            <h2>Hello, <span lang="he">שלום</span></h2>
-            <h2>I'm David Gelberg</h2>
-            
-            <p>Ex-salesman turned self-taught coder, now a Quantitative Developer and Machine Learning Engineer with a passion for the investor-startup world. I've developed algorithms for top sports bettors and recently helped startups with fundraising strategies and partnerships.</p>
-            
-            <p>Currently exploring what's next, I'm advising early-stage companies and building an AI-driven quantitative algorithm to detect top-tier founders and link them with top-tier investors. I'm also spending a lot of time meeting and discovering people in the startup and AI world.</p>
-        </div>
+    <div class="container">
+        <main role="main">
+            <h1 class="visually-hidden">David Gelberg - Quantitative Developer and Machine Learning Engineer</h1>
 
-        <div class="divider"></div>
-
-        <div class="columns">
-            <div class="column">
-                <h2 class="section-title">Contact</h2>
-                <div class="links">
-                    <a href="http://linkedin.com/in/davidgelberg/" target="_blank" rel="noopener">Linkedin</a>
-                    <a href="mailto:davidgelberg@gmail.com" target="_blank" rel="noopener">Mail</a>
-                    <a href="https://drive.google.com/file/d/1nxck1UpEBlATBtlCaK4hzOU8Dibi_FwN/view?usp=sharing" target="_blank" rel="noopener">Resume</a>
-                </div>
+            <div class="content">
+                <h2>Hello, <span lang="he">שלום</span></h2>
+                <h2>I'm David Gelberg</h2>
+                
+                <p>Ex-salesman turned self-taught coder, now a Quantitative Developer and Machine Learning Engineer with a passion for the investor-startup world. I've developed algorithms for top sports bettors and recently helped startups with fundraising strategies and partnerships.</p>
+                
+                <p>Currently exploring what's next, I'm advising early-stage companies and building an AI-driven quantitative algorithm to detect top-tier founders and link them with top-tier investors. I'm also spending a lot of time meeting and discovering people in the startup and AI world.</p>
             </div>
 
-            <div class="column">
-                <h2 class="section-title">Latest Projects</h2>
-                <div class="projects">
-                    <a href="https://t1v.co" target="_blank" rel="noopener" class="project-link">
-                        <svg class="project-icon" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="T1V logo">
-                            <rect width="30" height="30" fill="white"/>
-                            <path d="M10.0897 22.5V10.2181H6.2843V7.5H16.9554V10.2181H13.2105V22.5H10.0897Z" fill="black"/>
-                            <path d="M20.5949 22.5V10.1376H17.6754V7.5H23.7157V22.5H20.5949Z" fill="black"/>
-                        </svg>
-                        <span>T1V</span>
-                        <div class="tooltip">Bridging the gap between top tier founders and investors</div>
-                    </a>
-                    <a href="https://www.workshoplab.org" target="_blank" rel="noopener" class="project-link">
-                        <svg class="project-icon" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M0 0H30V30H0V0Z" fill="white"/>
-                            <path d="M8.55898 21.1237L4.40991 8.88482H7.27433L9.79155 17.1135L12.5171 8.8501H14.8086L17.5342 17.1135L20.0514 8.88482H22.8463L18.6973 21.1237H16.3241L13.6281 13.1728L10.8852 21.1237H8.55898Z" fill="black"/>
-                            <path d="M16.3241 21.1237L20.0514 8.88482H22.8463L19.5212 18.6933H25.5799V21.1237H16.3241Z" fill="black"/>
-                        </svg>
-                        <span>Workshop Lab</span>
-                        <div class="tooltip">Helping founders join accelerators and secure initial funding</div>
-                    </a>
-                    <a href="https://warestack.com" target="_blank" rel="noopener" class="project-link">
-                        <svg class="project-icon" viewBox="0 0 30 30">
-                            <path d="M14.45 4.87L6.31 9.59C5.755 9.913 5.565 10.625 5.887 11.18C5.99 11.355 6.135 11.5 6.31 11.603L14.47 16.335C14.83 16.543 15.272 16.545 15.632 16.338L23.607 11.78C24.165 11.463 24.36 10.75 24.042 10.193C23.945 10.023 23.805 9.878 23.637 9.775L15.642 4.88C15.552 4.825 15.342 4.713 15.047 4.71C14.755 4.708 14.54 4.815 14.45 4.868Z" fill="transparent" stroke="black" stroke-width="1.25"/>
-                            <path d="M7.777 13.218L6.367 14.003C5.805 14.315 5.602 15.023 5.915 15.585C6.017 15.768 6.167 15.92 6.347 16.028L14.47 20.738C14.83 20.945 15.272 20.948 15.632 20.74L23.655 16.155C24.212 15.835 24.407 15.125 24.087 14.568C23.995 14.405 23.865 14.268 23.71 14.168L22.345 13.285C21.982 13.05 21.52 13.035 21.142 13.248L15.62 16.353C15.265 16.553 14.832 16.553 14.48 16.353L8.912 13.223C8.56 13.025 8.13 13.023 7.777 13.22Z" fill="transparent" stroke="black" stroke-width="1.25"/>
-                            <path d="M7.777 17.618L6.367 18.4C5.805 18.713 5.602 19.42 5.915 19.983C6.017 20.165 6.167 20.318 6.347 20.425L14.47 25.135C14.83 25.343 15.272 25.345 15.632 25.138L23.655 20.553C24.212 20.233 24.407 19.523 24.087 18.965C23.995 18.803 23.865 18.665 23.71 18.565L22.345 17.683C21.982 17.448 21.52 17.433 21.142 17.645L15.62 20.75C15.265 20.95 14.832 20.95 14.48 20.75L8.912 17.62C8.56 17.423 8.13 17.42 7.777 17.62Z" fill="transparent" stroke="black" stroke-width="1.25"/>
-                        </svg>
-                        <span>Warestack</span>
-                        <div class="tooltip">Building tools to streamline GitHub workflows and ensure code quality at every step</div>
-                    </a>
-                </div>
-            </div>
+            <div class="divider"></div>
 
-            <div class="column">
-                <h2 class="section-title">Skills</h2>
-                <div class="skills">
-                    <span class="skill">Python</span>
-                    <span class="skill">Machine Learning</span>
-                    <span class="skill">AI</span>
-                    <span class="skill">Quantitative Analysis</span>
-                    <span class="skill">Algorithm Development</span>
-                </div>
+            <div class="columns">
+                <nav class="column" role="navigation" aria-label="Contact information">
+                    <h2 class="section-title">Contact</h2>
+                    <div class="links">
+                        <a href="http://linkedin.com/in/davidgelberg/" target="_blank" rel="noopener">Linkedin</a>
+                        <a href="mailto:davidgelberg@gmail.com" target="_blank" rel="noopener">Mail</a>
+                        <a href="https://drive.google.com/file/d/1nxck1UpEBlATBtlCaK4hzOU8Dibi_FwN/view?usp=sharing" target="_blank" rel="noopener">Resume</a>
+                    </div>
+                </nav>
+
+                <section class="column" aria-label="Latest Projects">
+                    <h2 class="section-title">Latest Projects</h2>
+                    <div class="projects">
+                        <a href="https://t1v.co" target="_blank" rel="noopener" class="project-link">
+                            <svg class="project-icon" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="T1V logo">
+                                <rect width="30" height="30" fill="white"/>
+                                <path d="M10.0897 22.5V10.2181H6.2843V7.5H16.9554V10.2181H13.2105V22.5H10.0897Z" fill="black"/>
+                                <path d="M20.5949 22.5V10.1376H17.6754V7.5H23.7157V22.5H20.5949Z" fill="black"/>
+                            </svg>
+                            <span>T1V</span>
+                            <div class="tooltip">Bridging the gap between top tier founders and investors</div>
+                        </a>
+                        <a href="https://www.workshoplab.org" target="_blank" rel="noopener" class="project-link">
+                            <svg class="project-icon" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0H30V30H0V0Z" fill="white"/>
+                                <path d="M8.55898 21.1237L4.40991 8.88482H7.27433L9.79155 17.1135L12.5171 8.8501H14.8086L17.5342 17.1135L20.0514 8.88482H22.8463L18.6973 21.1237H16.3241L13.6281 13.1728L10.8852 21.1237H8.55898Z" fill="black"/>
+                                <path d="M16.3241 21.1237L20.0514 8.88482H22.8463L19.5212 18.6933H25.5799V21.1237H16.3241Z" fill="black"/>
+                            </svg>
+                            <span>Workshop Lab</span>
+                            <div class="tooltip">Helping founders join accelerators and secure initial funding</div>
+                        </a>
+                        <a href="https://warestack.com" target="_blank" rel="noopener" class="project-link">
+                            <svg class="project-icon" viewBox="0 0 30 30">
+                                <path d="M14.45 4.87L6.31 9.59C5.755 9.913 5.565 10.625 5.887 11.18C5.99 11.355 6.135 11.5 6.31 11.603L14.47 16.335C14.83 16.543 15.272 16.545 15.632 16.338L23.607 11.78C24.165 11.463 24.36 10.75 24.042 10.193C23.945 10.023 23.805 9.878 23.637 9.775L15.642 4.88C15.552 4.825 15.342 4.713 15.047 4.71C14.755 4.708 14.54 4.815 14.45 4.868Z" fill="transparent" stroke="black" stroke-width="1.25"/>
+                                <path d="M7.777 13.218L6.367 14.003C5.805 14.315 5.602 15.023 5.915 15.585C6.017 15.768 6.167 15.92 6.347 16.028L14.47 20.738C14.83 20.945 15.272 20.948 15.632 20.74L23.655 16.155C24.212 15.835 24.407 15.125 24.087 14.568C23.995 14.405 23.865 14.268 23.71 14.168L22.345 13.285C21.982 13.05 21.52 13.035 21.142 13.248L15.62 16.353C15.265 16.553 14.832 16.553 14.48 16.353L8.912 13.223C8.56 13.025 8.13 13.023 7.777 13.22Z" fill="transparent" stroke="black" stroke-width="1.25"/>
+                                <path d="M7.777 17.618L6.367 18.4C5.805 18.713 5.602 19.42 5.915 19.983C6.017 20.165 6.167 20.318 6.347 20.425L14.47 25.135C14.83 25.343 15.272 25.345 15.632 25.138L23.655 20.553C24.212 20.233 24.407 19.523 24.087 18.965C23.995 18.803 23.865 18.665 23.71 18.565L22.345 17.683C21.982 17.448 21.52 17.433 21.142 17.645L15.62 20.75C15.265 20.95 14.832 20.95 14.48 20.75L8.912 17.62C8.56 17.423 8.13 17.42 7.777 17.62Z" fill="transparent" stroke="black" stroke-width="1.25"/>
+                            </svg>
+                            <span>Warestack</span>
+                            <div class="tooltip">Building tools to streamline GitHub workflows and ensure code quality at every step</div>
+                        </a>
+                    </div>
+                </section>
+
+                <section class="column" aria-label="Skills">
+                    <h2 class="section-title">Skills</h2>
+                    <div class="skills">
+                        <span class="skill">Python</span>
+                        <span class="skill">Machine Learning</span>
+                        <span class="skill">AI</span>
+                        <span class="skill">Quantitative Analysis</span>
+                        <span class="skill">Algorithm Development</span>
+                    </div>
+                </section>
             </div>
-        </div>
+        </main>
     </div>
 
     <div id="overlay" class="overlay">
@@ -920,12 +1029,95 @@
     </script>
 
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VW3QJF43L5"></script>
-    <script>
+    <script type="text/plain" data-cookiecategory="statistics">
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtag/js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','G-VW3QJF43L5');
+      
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-VW3QJF43L5');
+      gtag('config', 'G-VW3QJF43L5', {
+        'anonymize_ip': true,
+        'cookie_flags': 'SameSite=None;Secure'
+      });
+    </script>
+
+    <div class="cookie-consent" id="cookieConsent">
+        <p>This website uses Google Analytics cookies to understand how visitors interact with our site. These cookies collect anonymous usage data and are completely optional. By clicking "Accept", you consent to these analytics cookies. You can change your choice anytime. See our <a href="privacy-policy.html">Privacy Policy</a> for details.</p>
+        <div class="cookie-buttons">
+            <button class="cookie-button accept" onclick="acceptCookies()">Accept</button>
+            <button class="cookie-button" onclick="rejectCookies()">Reject</button>
+        </div>
+    </div>
+
+    <script>
+        // Cookie consent functions
+        function setCookie(name, value, days) {
+            let expires = "";
+            if (days) {
+                const date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/; SameSite=Lax; Secure";
+        }
+
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const ca = document.cookie.split(';');
+            for(let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        function acceptCookies() {
+            setCookie('cookie_consent', 'accepted', 365);
+            document.getElementById('cookieConsent').style.display = 'none';
+            // Load Google Analytics
+            loadGoogleAnalytics();
+        }
+
+        function loadGoogleAnalytics() {
+            if (getCookie('cookie_consent') === 'accepted') {
+                const script = document.createElement('script');
+                script.src = 'https://www.googletagmanager.com/gtag/js?id=G-VW3QJF43L5';
+                script.async = true;
+                document.head.appendChild(script);
+
+                script.onload = function() {
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', 'G-VW3QJF43L5', {
+                        'anonymize_ip': true,
+                        'cookie_flags': 'SameSite=None;Secure'
+                    });
+                };
+            }
+        }
+
+        function rejectCookies() {
+            setCookie('cookie_consent', 'rejected', 365);
+            document.getElementById('cookieConsent').style.display = 'none';
+            // Delete any existing Google Analytics cookies
+            document.cookie = '_ga=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+            document.cookie = '_ga_VW3QJF43L5=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        }
+
+        // Show cookie consent if not previously set
+        window.onload = function() {
+            if (!getCookie('cookie_consent')) {
+                document.getElementById('cookieConsent').style.display = 'block';
+            } else if (getCookie('cookie_consent') === 'accepted') {
+                loadGoogleAnalytics();
+            }
+        }
     </script>
 </body>
 </html>
