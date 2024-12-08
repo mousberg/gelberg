@@ -442,7 +442,11 @@
             width: 100%;
         }
 
-        .overlay-images img {
+        .overlay-images picture {
+            display: block;
+        }
+
+        .overlay-images picture img {
             display: block;
             height: 191px;
             border-radius: 10px;
@@ -455,11 +459,11 @@
                 0 0 1px rgba(0, 0, 0, 0.25);
         }
 
-        .overlay-images img:first-child {
+        .overlay-images picture:first-child img {
             width: 307px;
         }
 
-        .overlay-images img:last-child {
+        .overlay-images picture:last-child img {
             width: 461px;
         }
 
@@ -479,8 +483,8 @@
                 font-size: 13px !important;
             }
 
-            .overlay-images img:first-child,
-            .overlay-images img:last-child {
+            .overlay-images picture:first-child img,
+            .overlay-images picture:last-child img {
                 width: 100%;
                 height: auto;
                 aspect-ratio: 307/191;
@@ -813,12 +817,10 @@
 
                 <div class="overlay-images">
                     <picture>
-                        <source srcset="11labs/prototype.webp" type="image/webp">
                         <source srcset="11labs/prototype.jpg" type="image/jpeg">
                         <img src="11labs/prototype.jpg" alt="6Sense prototype demonstration at the ElevenLabs AI Hackathon" loading="lazy">
                     </picture>
                     <picture>
-                        <source srcset="11labs/team.webp" type="image/webp">
                         <source srcset="11labs/team.jpg" type="image/jpeg">
                         <img src="11labs/team.jpg" alt="Hackathon team presenting 6Sense project" loading="lazy">
                     </picture>
