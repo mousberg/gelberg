@@ -1041,12 +1041,14 @@
       gtag('js', new Date());
       gtag('config', 'G-VW3QJF43L5', {
         'anonymize_ip': true,
-        'cookie_flags': 'SameSite=None;Secure'
+        'cookie_flags': 'SameSite=None;Secure',
+        'storage': 'none',
+        'restricted_data_processing': true
       });
     </script>
 
     <div class="cookie-consent" id="cookieConsent">
-        <p>This website uses Google Analytics cookies to understand how visitors interact with our site. These cookies collect anonymous usage data and are completely optional. By clicking "Accept", you consent to these analytics cookies. You can change your choice anytime. See our <a href="privacy-policy.html">Privacy Policy</a> for details.</p>
+        <p>We use Google Analytics for statistical purposes only. Your IP address is anonymized and no personal data is collected without your explicit consent. By clicking "Accept", you agree to data processing in the US under EU Standard Contractual Clauses. You can withdraw consent anytime. See our <a href="privacy-policy.html">Privacy Policy</a> for details.</p>
         <div class="cookie-buttons">
             <button class="cookie-button accept" onclick="acceptCookies()">Accept</button>
             <button class="cookie-button" onclick="rejectCookies()">Reject</button>
@@ -1085,6 +1087,8 @@
 
         function loadGoogleAnalytics() {
             if (getCookie('cookie_consent') === 'accepted') {
+                // Disable tracking until consent
+                window['ga-disable-G-VW3QJF43L5'] = false;
                 const script = document.createElement('script');
                 script.src = 'https://www.googletagmanager.com/gtag/js?id=G-VW3QJF43L5';
                 script.async = true;
@@ -1096,11 +1100,16 @@
                     gtag('js', new Date());
                     gtag('config', 'G-VW3QJF43L5', {
                         'anonymize_ip': true,
-                        'cookie_flags': 'SameSite=None;Secure'
+                        'cookie_flags': 'SameSite=None;Secure',
+                        'storage': 'none',
+                        'restricted_data_processing': true
                     });
                 };
             }
         }
+
+        // Disable tracking by default
+        window['ga-disable-G-VW3QJF43L5'] = true;
 
         function rejectCookies() {
             setCookie('cookie_consent', 'rejected', 365);
@@ -1117,6 +1126,14 @@
             } else if (getCookie('cookie_consent') === 'accepted') {
                 loadGoogleAnalytics();
             }
+        }
+
+        function withdrawConsent() {
+            rejectCookies();
+            window['ga-disable-G-VW3QJF43L5'] = true;
+            // Remove all GA cookies
+            document.cookie = '_ga=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+            document.cookie = '_ga_VW3QJF43L5=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
         }
     </script>
 </body>
