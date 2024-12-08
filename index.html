@@ -903,27 +903,13 @@
     }
     </script>
 
-    <!-- Google Analytics with delayed loading -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VW3QJF43L5"></script>
     <script>
-      window.addEventListener('load', function() {
-        setTimeout(function() {
-          var script = document.createElement('script');
-          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-VW3QJF43L5';
-          script.async = true;
-          document.head.appendChild(script);
-          
-          script.onload = function() {
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-VW3QJF43L5', {
-              'anonymize_ip': true,
-              'send_page_view': false,
-              'optimization_id': '10030491413'
-            });
-          };
-        }, 2000);  // Load after 2 seconds when user has likely finished initial interaction
-      });
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-VW3QJF43L5');
     </script>
 </body>
 </html>
