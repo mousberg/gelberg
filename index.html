@@ -124,7 +124,7 @@
         }
 
         .section-title {
-            color: #a0a5ac;
+            color: #717171;
             font-weight: 200;
             margin-bottom: 25px;
             font-size: 20px;
@@ -156,7 +156,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            color: rgba(0,0,0,0.5);
+            color: rgba(0,0,0,0.7);
             text-decoration: none;
             font-weight: 200;
             font-size: 20px;
@@ -715,7 +715,7 @@
             padding: 5px 10px;
             border-radius: 15px;
             font-size: 14px;
-            color: rgba(0,0,0,0.7);
+            color: rgba(0,0,0,0.8);
         }
     </style>
 </head>
@@ -745,7 +745,7 @@
                 <div class="links">
                     <a href="http://linkedin.com/in/davidgelberg/" target="_blank" rel="noopener">Linkedin</a>
                     <a href="mailto:davidgelberg@gmail.com" target="_blank" rel="noopener">Mail</a>
-                    <a href="/resume.pdf" target="_blank" rel="noopener">Resume</a>
+                    <a href="https://drive.google.com/file/d/1nxck1UpEBlATBtlCaK4hzOU8Dibi_FwN/view?usp=sharing" target="_blank" rel="noopener">Resume</a>
                 </div>
             </div>
 
@@ -795,7 +795,7 @@
 
     <div id="overlay" class="overlay">
         <div class="overlay-content">
-            <button class="close-button" onclick="toggleOverlay()">×</button>
+            <button class="close-button" onclick="toggleOverlay()" aria-label="Close overlay">×</button>
             <div class="overlay-text">
                 <h3 class="overlay-title">November 2023</h3>
                 <p>I participated in the Consumer AI Hackathon in London, hosted by Eleven Labs and backed by industry heavyweights like a16z, Synthesia, and AI Tinkerers. This event brought together forward-thinking minds to create innovative consumer AI solutions, with judges including Eleven Labs' CEO Mati Staniszewski and a16z General Partner Sriram Krishnan. It was a fast-paced weekend packed with ideation, development, and pitching.</p>
@@ -812,14 +812,22 @@
                 </div>
 
                 <div class="overlay-images">
-                    <img src="11labs/prototype.jpg" alt="Hackathon Image 1">
-                    <img src="11labs/team.jpg" alt="Hackathon Image 2">
+                    <picture>
+                        <source srcset="11labs/prototype.webp" type="image/webp">
+                        <source srcset="11labs/prototype.jpg" type="image/jpeg">
+                        <img src="11labs/prototype.jpg" alt="6Sense prototype demonstration at the ElevenLabs AI Hackathon" loading="lazy">
+                    </picture>
+                    <picture>
+                        <source srcset="11labs/team.webp" type="image/webp">
+                        <source srcset="11labs/team.jpg" type="image/jpeg">
+                        <img src="11labs/team.jpg" alt="Hackathon team presenting 6Sense project" loading="lazy">
+                    </picture>
                 </div>
             </div>
         </div>
     </div>
 
-    <button class="overlay-button" onclick="toggleOverlay()">
+    <button class="overlay-button" onclick="toggleOverlay()" aria-label="Open project details">
         <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle class="circle" cx="15" cy="15" r="10" fill="white" stroke="white"/>
         </svg>
@@ -894,12 +902,15 @@
     </script>
 
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script async defer src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX');
+      gtag('config', 'G-XXXXXXXXXX', {
+        'anonymize_ip': true,
+        'send_page_view': false
+      });
     </script>
 </body>
 </html>
