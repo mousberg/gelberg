@@ -710,16 +710,22 @@
             pointer-events: none;
             z-index: 9999;
             mix-blend-mode: difference;
-            transition: transform 0.2s ease;
+            transition: width 0.2s ease, height 0.2s ease, border-radius 0.2s ease;
         }
 
-        a:hover + .custom-cursor,
-        button:hover + .custom-cursor,
+        /* Text cursor state */
+        .custom-cursor.text {
+            width: 2px;
+            height: 20px;
+            border-radius: 0;
+        }
+
+        /* Keep circle for interactive elements */
         a:hover ~ .custom-cursor,
-        button:hover ~ .custom-cursor,
-        a:hover .custom-cursor,
-        button:hover .custom-cursor {
-            transform: scale(1.5);
+        button:hover ~ .custom-cursor {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
         }
 
         .skills {
@@ -989,6 +995,23 @@
             const cursor = document.querySelector('.custom-cursor');
             cursor.style.left = e.clientX - 10 + 'px';
             cursor.style.top = e.clientY - 10 + 'px';
+            
+            // Check what we're hovering over
+            const element = document.elementFromPoint(e.clientX, e.clientY);
+            if (element) {
+                // Check if we're hovering over text content
+                const isText = ['P', 'H1', 'H2', 'H3', 'SPAN'].includes(element.tagName) &&
+                              !element.closest('a') && 
+                              !element.closest('button') &&
+                              !element.closest('.overlay-button');
+                
+                // Toggle text cursor class
+                if (isText) {
+                    cursor.classList.add('text');
+                } else {
+                    cursor.classList.remove('text');
+                }
+            }
         });
     </script>
 
