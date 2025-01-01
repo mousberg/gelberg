@@ -1678,17 +1678,32 @@
         }
 
         /* Theme toggle icon display rules */
+        .theme-toggle .sun-icon,
         .theme-toggle .moon-icon {
-            display: none;  /* Hide moon icon by default */
+            width: 22px;
+            height: 22px;
+            color: rgba(0, 0, 0, 0.7);
+            transition: all 0.3s ease;
+            position: absolute;
+            opacity: 0;
+            visibility: hidden;
         }
 
-        /* In dark mode */
+        /* Show sun icon by default in light mode */
+        .theme-toggle .sun-icon {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Dark mode states */
         body.dark-theme .theme-toggle .sun-icon {
-            display: none;  /* Hide sun in dark mode */
+            opacity: 0;
+            visibility: hidden;
         }
 
         body.dark-theme .theme-toggle .moon-icon {
-            display: block;  /* Show moon in dark mode */
+            opacity: 1;
+            visibility: visible;
         }
     </style>
 </head>
@@ -2124,20 +2139,21 @@
 
     <script>
         const themeToggle = document.querySelector('.theme-toggle');
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-theme');
-            themeToggle.classList.toggle('dark');
-            
-            // Save preference
-            const isDark = document.body.classList.contains('dark-theme');
+        
+        function setTheme(isDark) {
+            document.body.classList.toggle('dark-theme', isDark);
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const isDark = !document.body.classList.contains('dark-theme');
+            setTheme(isDark);
         });
 
         // Check for saved theme preference
         const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-            document.body.classList.add('dark-theme');
-            themeToggle.classList.add('dark');
+        if (savedTheme) {
+            setTheme(savedTheme === 'dark');
         }
     </script>
 
