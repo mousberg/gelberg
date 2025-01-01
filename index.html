@@ -306,6 +306,7 @@
             height: 30px;
         }
 
+        /* Project link tooltip styles */
         .project-link .tooltip {
             position: absolute;
             background: rgba(255, 255, 255, 0.8);
@@ -328,57 +329,39 @@
             width: auto;
             padding-left: 16px;
             padding-right: 16px;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        .project-link:hover .tooltip {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%) translateY(0);
-            background: rgba(255, 255, 255, 0.9);
+        /* Only show tooltips on hover for devices that support hover */
+        @media (hover: hover) {
+            .project-link:hover .tooltip {
+                opacity: 1;
+                visibility: visible;
+                transform: translateX(-50%) translateY(0);
+            }
         }
 
-        /* Dark mode tooltip styles */
-        body.dark-theme .project-link .tooltip {
-            background: rgba(0, 0, 0, 0.8);
-            color: rgba(255, 255, 255, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        /* For touch devices, don't show tooltips */
+        @media (hover: none) {
+            .project-link .tooltip {
+                display: none;
+            }
+            
+            /* Remove any hover states that might get stuck */
+            .project-link:hover,
+            .project-link:active,
+            .project-link:focus {
+                transform: none;
+                opacity: 1;
+            }
         }
 
-        body.dark-theme .project-link:hover .tooltip {
-            background: rgba(0, 0, 0, 0.9);
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .project-link .tooltip {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.8);
-            color: rgba(0, 0, 0, 0.5);
-            padding: 6px 12px;
-            border-radius: 15px;
-            font-size: 12px;
-            bottom: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            opacity: 0;
-            visibility: hidden;
-            transition: 0.3s;
-            margin-bottom: 10px;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(207, 207, 207, 0.5);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            width: auto;
-            padding-left: 16px;
-            padding-right: 16px;
-        }
-
-        .project-link:hover .tooltip {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%) translateY(0);
-            background: rgba(255, 255, 255, 0.9);
+        /* Add touch feedback instead */
+        @media (hover: none) {
+            .project-link:active {
+                opacity: 0.7;
+                transition: opacity 0.1s ease;
+            }
         }
 
         .project-link svg {
@@ -954,28 +937,41 @@
             transition: all 0.3s ease;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
             border: 1px solid rgba(207, 207, 207, 0.5);
+            -webkit-tap-highlight-color: transparent; /* Remove tap highlight on iOS */
         }
 
-        .skill:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            background: rgba(255, 255, 255, 0.8);
-            color: rgba(0, 0, 0, 0.8);
+        /* Only apply hover effects on devices that support hover */
+        @media (hover: hover) {
+            .skill:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                background: rgba(255, 255, 255, 0.8);
+                color: rgba(0, 0, 0, 0.8);
+            }
+
+            body.dark-theme .skill:hover {
+                background: rgba(255, 255, 255, 0.05);
+                color: rgba(255, 255, 255, 0.9);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            }
         }
 
-        /* Dark mode skill tag styles */
+        /* Touch device styles */
+        @media (hover: none) {
+            .skill:active {
+                opacity: 0.7;
+                transform: scale(0.98);
+                transition: all 0.1s ease;
+            }
+        }
+
+        /* Dark mode base styles */
         body.dark-theme .skill {
             background: rgba(255, 255, 255, 0.03);
             color: rgba(255, 255, 255, 0.5);
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        body.dark-theme .skill:hover {
-            background: rgba(255, 255, 255, 0.05);
-            color: rgba(255, 255, 255, 0.9);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
         .visually-hidden {
@@ -1153,6 +1149,7 @@
             transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
+        /* Dock tooltip styles */
         .dock-tooltip {
             position: absolute;
             bottom: 100%;
@@ -1177,170 +1174,35 @@
             width: auto;
             padding-left: 16px;
             padding-right: 16px;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        .dock-item:hover .dock-tooltip {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%) translateY(-5px);
-            background: rgba(255, 255, 255, 0.9);
-        }
-
-        /* Dark mode dock tooltip styles */
-        body.dark-theme .dock-tooltip {
-            background: rgba(0, 0, 0, 0.8);
-            color: rgba(255, 255, 255, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        body.dark-theme .dock-item:hover .dock-tooltip {
-            background: rgba(0, 0, 0, 0.9);
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        @media (max-width: 768px) {
-            .dock {
-                bottom: max(10px, env(safe-area-inset-bottom, 10px));
-                padding: 10px;
-                gap: 8px;
-                border-radius: 35px;
+        /* Only show tooltips on hover for devices that support hover */
+        @media (hover: hover) {
+            .dock-item:hover .dock-tooltip {
+                opacity: 1;
+                visibility: visible;
+                transform: translateX(-50%) translateY(-5px);
             }
-            
-            .dock-item {
-                width: 40px;
-                height: 40px;
-            }
-            
-            .dock-item:hover {
-                transform: scale(1.1);
-            }
+        }
 
+        /* For touch devices, don't show tooltips */
+        @media (hover: none) {
             .dock-tooltip {
-                padding: 4px 12px;
-                font-size: 11px;
-                margin-bottom: 8px;
-            }
-        }
-
-        /* Update the footer-links to not conflict with dock */
-        .footer-links {
-            display: none;
-        }
-
-        .dock-section {
-            display: flex;
-            gap: 8px;
-            align-items: center;
-            box-sizing: border-box;
-        }
-
-        .dock-divider {
-            width: 1px;
-            height: 35px;
-            background: var(--colors-grayA6, hsla(0, 0%, 0%, 0.114));
-            margin: 0 8px;
-            align-self: center;
-        }
-
-        .dock-indicator {
-            position: absolute;
-            bottom: -8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            background: rgba(0, 0, 0, 0.5);
-            opacity: 0;
-        }
-
-        .dock-item.active .dock-indicator {
-            opacity: 1;
-        }
-
-        .dock-item {
-            position: relative;
-            transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 45px;
-            height: 45px;
-            background: #fff;
-            border-radius: 50%;
-            border: 1px solid var(--colors-grayA4, hsla(0, 0%, 0%, 0.071));
-            transform-origin: center center;
-            will-change: transform;
-        }
-
-        .dock-item:hover {
-            transform: scale(1.15);
-            border-color: var(--colors-grayA8, hsla(0, 0%, 0%, 0.22));
-            z-index: 1;
-        }
-
-        .dock-icon {
-            width: 22px;
-            height: 22px;
-            color: rgba(0, 0, 0, 0.7);
-            transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-        }
-
-        .dock-tooltip {
-            position: absolute;
-            bottom: 100%;
-            margin-bottom: 10px;
-            background: rgba(255, 255, 255, 0.8);
-            color: rgba(0, 0, 0, 0.5);
-            padding: 6px 12px;
-            border-radius: 15px;
-            font-size: 12px;
-            min-width: fit-content;
-            text-align: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(207, 207, 207, 0.5);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            left: 50%;
-            transform: translateX(-50%);
-            width: auto;
-            padding-left: 16px;
-            padding-right: 16px;
-        }
-
-        .dock-item:hover .dock-tooltip {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%) translateY(-5px);
-            background: rgba(255, 255, 255, 0.9);
-        }
-
-        @media (max-width: 768px) {
-            .dock {
-                bottom: max(10px, env(safe-area-inset-bottom, 10px));
-                padding: 10px;
-                gap: 8px;
-                border-radius: 35px;
+                display: none;
             }
             
-            .dock-item {
-                width: 40px;
-                height: 40px;
-            }
-            
-            .dock-item:hover {
-                transform: scale(1.1);
+            /* Remove any hover states that might get stuck */
+            .dock-item:hover,
+            .dock-item:active,
+            .dock-item:focus {
+                transform: none;
             }
 
-            .dock-tooltip {
-                padding: 4px 12px;
-                font-size: 11px;
-                margin-bottom: 8px;
+            /* Add touch feedback instead */
+            .dock-item:active {
+                opacity: 0.7;
+                transition: opacity 0.1s ease;
             }
         }
 
