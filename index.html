@@ -55,6 +55,107 @@
             position: relative;
             overflow-x: hidden;
             cursor: none;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body.dark-theme {
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        /* Dark mode text styles */
+        body.dark-theme p {
+            color: rgba(255, 255, 255, 0.8);
+            background: none;
+            -webkit-background-clip: unset;
+            -webkit-text-fill-color: unset;
+            background-clip: unset;
+        }
+
+        body.dark-theme .section-title {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        body.dark-theme .links a {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        body.dark-theme .links a:hover {
+            color: #fff;
+        }
+
+        body.dark-theme .project-link {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        body.dark-theme .project-link:hover {
+            color: rgba(255, 255, 255, 1);
+        }
+
+        body.dark-theme .dock {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark-theme .dock-item {
+            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        body.dark-theme .dock-icon {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        body.dark-theme .dock-divider {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        body.dark-theme .dock-indicator {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        body.dark-theme .dock-tooltip {
+            background: rgba(0, 0, 0, 0.8);
+            color: rgba(255, 255, 255, 0.7);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark-theme .overlay {
+            background-color: rgba(0, 0, 0, 0);
+        }
+
+        body.dark-theme .overlay.active {
+            background-color: rgba(0, 0, 0, 0.98);
+        }
+
+        body.dark-theme .overlay-content {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark-theme .overlay-title,
+        body.dark-theme .blog-entry-title {
+            color: #fff;
+        }
+
+        body.dark-theme .overlay-text p,
+        body.dark-theme .blog-entry-preview {
+            color: rgba(255, 255, 255, 0.7) !important;
+            -webkit-text-fill-color: rgba(255, 255, 255, 0.7) !important;
+        }
+
+        body.dark-theme .blog-entry {
+            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark-theme .blog-entry:hover {
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        body.dark-theme .divider {
+            border-color: rgba(255, 255, 255, 0.1);
         }
 
         a, button {
@@ -89,8 +190,8 @@
             height: 28px;
             transition: all 1.2s cubic-bezier(0.6, 0.01, 0.05, 1);
             z-index: 1000;
-            top: 50%;
-            left: 50%;
+            top: 50vh;
+            left: 50vw;
             transform: translate(-50%, -50%) scale(3);
             opacity: 0;
         }
@@ -109,7 +210,7 @@
 
         h2 {
             font-weight: 500;
-            color: #333;
+            color: rgba(255, 255, 255, 0.9);
         }
 
         p {
@@ -174,18 +275,41 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            color: rgba(0,0,0,0.5);
             text-decoration: none;
             font-weight: 200;
             font-size: 20px;
-            transition: color 0.3s;
             position: relative;
+        }
+
+        /* SVG and text styles */
+        .project-link svg,
+        .project-link span {
+            color: black;
+            opacity: 0.5;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-link:hover svg,
+        .project-link:hover span {
+            opacity: 1;
+        }
+
+        /* Dark mode */
+        body.dark-theme .project-link svg,
+        body.dark-theme .project-link span {
+            color: white;
+        }
+
+        /* Icon size */
+        .project-icon {
+            width: 30px;
+            height: 30px;
         }
 
         .project-link .tooltip {
             position: absolute;
             background: rgba(255, 255, 255, 0.8);
-            color: rgba(0,0,0,0.5);
+            color: rgba(0, 0, 0, 0.5);
             padding: 6px 12px;
             border-radius: 15px;
             font-size: 12px;
@@ -213,8 +337,48 @@
             background: rgba(255, 255, 255, 0.9);
         }
 
-        .project-link:hover {
-            color: rgba(0,0,0,1);
+        /* Dark mode tooltip styles */
+        body.dark-theme .project-link .tooltip {
+            background: rgba(0, 0, 0, 0.8);
+            color: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        body.dark-theme .project-link:hover .tooltip {
+            background: rgba(0, 0, 0, 0.9);
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .project-link .tooltip {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.8);
+            color: rgba(0, 0, 0, 0.5);
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+            margin-bottom: 10px;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(207, 207, 207, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            width: auto;
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+
+        .project-link:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+            background: rgba(255, 255, 255, 0.9);
         }
 
         .project-link svg {
@@ -229,12 +393,17 @@
         .project-icon {
             width: 30px;
             height: 30px;
-            opacity: 0.5;
-            transition: opacity 0.3s;
-            position: relative;
-            transform: translateZ(0);
-            -webkit-transform: translateZ(0);
-            margin: 0;
+            transition: color 0.3s ease;
+        }
+
+        .project-link:hover .project-icon {
+            color: rgba(0, 0, 0, 1);
+        }
+
+
+
+        body.dark-theme .project-link:hover .project-icon {
+            color: rgba(255, 255, 255, 1);
         }
 
         @media (min-width: 810px) and (max-width: 1199px) {
@@ -262,11 +431,20 @@
                 gap: 20px;
             }
 
-            .logo.animated {
-                top: 30px;
-                left: 50%;
-                transform: translateX(-50%) scale(1);
+            .logo {
                 position: fixed;
+                top: 50vh;
+                left: 50vw;
+                transform: translate(-50%, -50%) scale(3);
+                opacity: 0;
+            }
+
+            .logo.animated {
+                top: 40px;
+                left: 50%;
+                transform: translate(-50%, 0) scale(1);
+                position: fixed;
+                opacity: 1;
             }
             
             header {
@@ -283,6 +461,15 @@
                 );
                 backdrop-filter: blur(8px);
                 -webkit-backdrop-filter: blur(8px);
+            }
+
+            /* Dark mode header background */
+            body.dark-theme header {
+                background: linear-gradient(to bottom, 
+                    rgba(26, 26, 26, 1) 0%,
+                    rgba(26, 26, 26, 0.9) 70%,
+                    rgba(26, 26, 26, 0) 100%
+                );
             }
         }
 
@@ -792,7 +979,7 @@
             padding: 5px 10px;
             border-radius: 15px;
             font-size: 14px;
-            color: rgba(0,0,0,0.5);
+            color: rgba(0, 0, 0, 0.5);
             transition: all 0.3s ease;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
             border: 1px solid rgba(207, 207, 207, 0.5);
@@ -802,6 +989,22 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             background: rgba(255, 255, 255, 0.8);
+            color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Dark mode skill tag styles */
+        body.dark-theme .skill {
+            background: rgba(255, 255, 255, 0.03);
+            color: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        body.dark-theme .skill:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
         .visually-hidden {
@@ -996,8 +1199,8 @@
             white-space: nowrap;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
             border: 1px solid rgba(207, 207, 207, 0.5);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             left: 50%;
             transform: translateX(-50%);
             width: auto;
@@ -1010,6 +1213,19 @@
             visibility: visible;
             transform: translateX(-50%) translateY(-5px);
             background: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Dark mode dock tooltip styles */
+        body.dark-theme .dock-tooltip {
+            background: rgba(0, 0, 0, 0.8);
+            color: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        body.dark-theme .dock-item:hover .dock-tooltip {
+            background: rgba(0, 0, 0, 0.9);
+            color: rgba(255, 255, 255, 0.9);
         }
 
         @media (max-width: 768px) {
@@ -1117,8 +1333,8 @@
             white-space: nowrap;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
             border: 1px solid rgba(207, 207, 207, 0.5);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             left: 50%;
             transform: translateX(-50%);
             width: auto;
@@ -1164,19 +1380,28 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 45px;
-            height: 45px;
+            width: 40px;
+            height: 40px;
             background: #fff;
             border-radius: 50%;
-            border: 1px solid var(--colors-grayA4, hsla(0, 0%, 0%, 0.071));
+            border: 1px solid rgba(207, 207, 207, 0.5);
             transform-origin: center center;
             will-change: transform;
         }
 
-        .theme-toggle:hover {
-            transform: scale(1.15);
-            border-color: var(--colors-grayA8, hsla(0, 0%, 0%, 0.22));
-            z-index: 1;
+        .theme-toggle .sun-icon {
+            width: 20px;
+            height: 20px;
+            color: rgba(0, 0, 0, 0.5);
+            transition: color 0.3s ease;
+        }
+
+        .theme-toggle .moon-icon {
+            display: none;
+            width: 20px;
+            height: 20px;
+            color: rgba(0, 0, 0, 0.5);
+            transition: color 0.3s ease;
         }
 
         .theme-toggle.dark .sun-icon {
@@ -1185,25 +1410,22 @@
 
         .theme-toggle.dark .moon-icon {
             display: block;
+            color: rgba(255, 255, 255, 0.7);
         }
 
-        .theme-toggle .sun-icon {
-            display: block;
+        /* Dark mode styles */
+        body.dark-theme .theme-toggle {
+            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(255, 255, 255, 0.08);
         }
 
-        .theme-toggle .moon-icon {
-            display: none;
+        body.dark-theme .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
         }
 
-        @media (max-width: 768px) {
-            .theme-toggle {
-                width: 40px;
-                height: 40px;
-            }
-            
-            .theme-toggle:hover {
-                transform: scale(1.1);
-            }
+        body.dark-theme .theme-toggle:hover .moon-icon {
+            color: rgba(255, 255, 255, 1);
         }
 
         .blog-timeline {
@@ -1314,6 +1536,146 @@
                 padding-left: 33px;
             }
         }
+
+        /* Fix SVG logo color in dark mode */
+        body.dark-theme .logo path {
+            fill: #fff;
+        }
+
+        /* Fix company logos in dark mode */
+        body.dark-theme .logo-link img {
+            filter: invert(1);
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        body.dark-theme .logo-link:hover img {
+            opacity: 1;
+        }
+
+        /* Fix theme toggle in dark mode */
+        body.dark-theme .theme-toggle {
+            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        body.dark-theme .theme-toggle .sun-icon {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        body.dark-theme .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark-theme .theme-toggle:hover .sun-icon {
+            color: rgba(255, 255, 255, 1);
+        }
+
+        body.dark-theme .theme-toggle .moon-icon {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        body.dark-theme .theme-toggle.dark .moon-icon {
+            display: block;
+        }
+
+        /* Fix dock items in dark mode */
+        body.dark-theme .dock-item {
+            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        body.dark-theme .dock-icon {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        body.dark-theme .dock-item:hover .dock-icon {
+            color: rgba(255, 255, 255, 1);
+        }
+
+        body.dark-theme .dock-tooltip {
+            background: rgba(0, 0, 0, 0.8);
+            color: rgba(255, 255, 255, 0.7);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Fix back button in dark mode */
+        body.dark-theme .back-button {
+            color: rgba(255, 255, 255, 0.7);
+            transition: color 0.3s ease;
+        }
+
+        body.dark-theme .back-button:hover {
+            color: rgba(255, 255, 255, 1);
+        }
+
+        /* Fix blog entry date and preview text in dark mode */
+        body.dark-theme .blog-entry-date,
+        body.dark-theme .blog-entry-preview {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        body.dark-theme .blog-entry-title {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Ensure Hebrew text is also visible */
+        body.dark-theme h2 span[lang="he"] {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Dark mode tooltip styles */
+        body.dark-theme .project-link .tooltip {
+            background: rgba(0, 0, 0, 0.8);
+            color: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        body.dark-theme .project-link:hover .tooltip {
+            background: rgba(0, 0, 0, 0.9);
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Remove all other color-related styles */
+        .project-link svg {
+            opacity: 0.5;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-link:hover svg {
+            opacity: 1;
+        }
+
+        /* Remove these conflicting styles */
+        .project-icon {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Remove all color-related styles for dark/light mode */
+        .project-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-weight: 200;
+            font-size: 20px;
+            position: relative;
+        }
+
+        /* Heading styles */
+        h2 {
+            font-size: 20px;
+            color: rgba(0, 0, 0, 0.9);  /* Dark text in light mode */
+        }
+
+        /* Dark mode heading styles */
+        body.dark-theme h2,
+        body.dark-theme h2 span[lang="he"] {
+            color: rgba(255, 255, 255, 0.9);  /* Light text in dark mode */
+        }
     </style>
 </head>
 <body>
@@ -1354,28 +1716,28 @@
                     <h2 class="section-title">Latest Projects</h2>
                     <div class="projects">
                         <a href="https://t1v.co" target="_blank" rel="noopener" class="project-link">
-                            <svg class="project-icon" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="T1V logo">
-                                <rect width="30" height="30" fill="white"/>
-                                <path d="M10.0897 22.5V10.2181H6.2843V7.5H16.9554V10.2181H13.2105V22.5H10.0897Z" fill="black"/>
-                                <path d="M20.5949 22.5V10.1376H17.6754V7.5H23.7157V22.5H20.5949Z" fill="black"/>
+                            <svg class="project-icon" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M134.529 300V136.242H83.791V100H226.073V136.242H176.14V300H134.529Z" fill="currentColor"/>
+                                <path d="M274.598 300V135.168H235.672V100H316.209V300H274.598Z" fill="currentColor"/>
                             </svg>
                             <span>T1V</span>
                             <div class="tooltip">Bridging the gap between top tier founders and investors</div>
                         </a>
+                        
                         <a href="https://www.workshoplab.org" target="_blank" rel="noopener" class="project-link">
-                            <svg class="project-icon" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0 0H30V30H0V0Z" fill="white"/>
-                                <path d="M8.55898 21.1237L4.40991 8.88482H7.27433L9.79155 17.1135L12.5171 8.8501H14.8086L17.5342 17.1135L20.0514 8.88482H22.8463L18.6973 21.1237H16.3241L13.6281 13.1728L10.8852 21.1237H8.55898Z" fill="black"/>
-                                <path d="M16.3241 21.1237L20.0514 8.88482H22.8463L19.5212 18.6933H25.5799V21.1237H16.3241Z" fill="black"/>
+                            <svg class="project-icon" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M114.121 281.648L58.8 118.463H96.9923L130.555 228.179L166.896 118H197.449L233.79 228.179L267.353 118.463H304.619L249.298 281.648H217.656L181.71 175.636L145.138 281.648H114.121Z" fill="currentColor"/>
+                                <path d="M217.656 281.648L267.353 118.463H304.619L260.284 249.242H341.066V281.648H217.656Z" fill="currentColor"/>
                             </svg>
                             <span>Workshop Lab</span>
                             <div class="tooltip">Helping founders join accelerators and secure initial funding</div>
                         </a>
+                        
                         <a href="https://warestack.com" target="_blank" rel="noopener" class="project-link">
-                            <svg class="project-icon" viewBox="0 0 30 30">
-                                <path d="M14.45 4.87L6.31 9.59C5.755 9.913 5.565 10.625 5.887 11.18C5.99 11.355 6.135 11.5 6.31 11.603L14.47 16.335C14.83 16.543 15.272 16.545 15.632 16.338L23.607 11.78C24.165 11.463 24.36 10.75 24.042 10.193C23.945 10.023 23.805 9.878 23.637 9.775L15.642 4.88C15.552 4.825 15.342 4.713 15.047 4.71C14.755 4.708 14.54 4.815 14.45 4.868Z" fill="transparent" stroke="black" stroke-width="1.25"/>
-                                <path d="M7.777 13.218L6.367 14.003C5.805 14.315 5.602 15.023 5.915 15.585C6.017 15.768 6.167 15.92 6.347 16.028L14.47 20.738C14.83 20.945 15.272 20.948 15.632 20.74L23.655 16.155C24.212 15.835 24.407 15.125 24.087 14.568C23.995 14.405 23.865 14.268 23.71 14.168L22.345 13.285C21.982 13.05 21.52 13.035 21.142 13.248L15.62 16.353C15.265 16.553 14.832 16.553 14.48 16.353L8.912 13.223C8.56 13.025 8.13 13.023 7.777 13.22Z" fill="transparent" stroke="black" stroke-width="1.25"/>
-                                <path d="M7.777 17.618L6.367 18.4C5.805 18.713 5.602 19.42 5.915 19.983C6.017 20.165 6.167 20.318 6.347 20.425L14.47 25.135C14.83 25.343 15.272 25.345 15.632 25.138L23.655 20.553C24.212 20.233 24.407 19.523 24.087 18.965C23.995 18.803 23.865 18.665 23.71 18.565L22.345 17.683C21.982 17.448 21.52 17.433 21.142 17.645L15.62 20.75C15.265 20.95 14.832 20.95 14.48 20.75L8.912 17.62C8.56 17.423 8.13 17.42 7.777 17.62Z" fill="transparent" stroke="black" stroke-width="1.25"/>
+                            <svg class="project-icon" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M192.662 64.934L84.1285 127.867C76.7285 132.167 74.1951 141.667 78.4951 149.067C79.8618 151.401 81.7951 153.334 84.1285 154.701L192.928 217.801C197.728 220.567 203.628 220.601 208.428 217.834L314.762 157.067C322.195 152.834 324.795 143.334 320.562 135.901C319.262 133.634 317.395 131.701 315.162 130.334L208.562 65.0673C207.362 64.334 204.562 62.834 200.628 62.8006C196.728 62.7673 193.862 64.2006 192.662 64.9006V64.934Z" stroke="currentColor" stroke-width="16.6667"/>
+                                <path d="M103.694 176.234L84.8945 186.701C77.3945 190.867 74.6945 200.301 78.8611 207.801C80.2278 210.234 82.2278 212.267 84.6278 213.701L192.928 276.501C197.728 279.267 203.628 279.301 208.428 276.534L315.394 215.401C322.828 211.134 325.428 201.667 321.161 194.234C319.928 192.067 318.194 190.234 316.128 188.901L297.928 177.134C293.094 174.001 286.928 173.801 281.894 176.634L208.261 218.034C203.528 220.701 197.761 220.701 193.061 218.034L118.828 176.301C114.128 173.667 108.394 173.634 103.694 176.267V176.234Z" stroke="currentColor" stroke-width="16.6667"/>
+                                <path d="M103.694 234.901L84.8945 245.334C77.3945 249.501 74.6945 258.934 78.8611 266.434C80.2278 268.867 82.2278 270.901 84.6278 272.334L192.928 335.134C197.728 337.901 203.628 337.934 208.428 335.167L315.394 274.034C322.828 269.767 325.428 260.301 321.161 252.867C319.928 250.701 318.194 248.867 316.128 247.534L297.928 235.767C293.094 232.634 286.928 232.434 281.894 235.267L208.261 276.667C203.528 279.334 197.761 279.334 193.061 276.667L118.828 234.934C114.128 232.301 108.394 232.267 103.694 234.934V234.901Z" stroke="currentColor" stroke-width="16.6667"/>
                             </svg>
                             <span>Warestack</span>
                             <div class="tooltip">Building tools to streamline GitHub workflows and ensure code quality at every step</div>
