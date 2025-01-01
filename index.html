@@ -1376,41 +1376,35 @@
         .theme-toggle {
             cursor: none;
             position: relative;
-            transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             background: #fff;
             border-radius: 50%;
             border: 1px solid rgba(207, 207, 207, 0.5);
             transform-origin: center center;
+            transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
             will-change: transform;
         }
 
-        .theme-toggle .sun-icon {
-            width: 20px;
-            height: 20px;
-            color: rgba(0, 0, 0, 0.5);
-            transition: color 0.3s ease;
+        .theme-toggle:hover {
+            transform: scale(1.15);
+            border-color: rgba(0, 0, 0, 0.22);
         }
 
+        .theme-toggle .sun-icon,
         .theme-toggle .moon-icon {
-            display: none;
-            width: 20px;
-            height: 20px;
-            color: rgba(0, 0, 0, 0.5);
+            width: 22px;
+            height: 22px;
+            color: rgba(0, 0, 0, 0.7);
             transition: color 0.3s ease;
         }
 
-        .theme-toggle.dark .sun-icon {
-            display: none;
-        }
-
-        .theme-toggle.dark .moon-icon {
-            display: block;
-            color: rgba(255, 255, 255, 0.7);
+        .theme-toggle:hover .sun-icon,
+        .theme-toggle:hover .moon-icon {
+            color: rgba(0, 0, 0, 1);
         }
 
         /* Dark mode styles */
@@ -1424,6 +1418,12 @@
             border-color: rgba(255, 255, 255, 0.1);
         }
 
+        body.dark-theme .theme-toggle .sun-icon,
+        body.dark-theme .theme-toggle .moon-icon {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        body.dark-theme .theme-toggle:hover .sun-icon,
         body.dark-theme .theme-toggle:hover .moon-icon {
             color: rgba(255, 255, 255, 1);
         }
@@ -1675,6 +1675,20 @@
         body.dark-theme h2,
         body.dark-theme h2 span[lang="he"] {
             color: rgba(255, 255, 255, 0.9);  /* Light text in dark mode */
+        }
+
+        /* Theme toggle icon display rules */
+        .theme-toggle .moon-icon {
+            display: none;  /* Hide moon icon by default */
+        }
+
+        /* In dark mode */
+        body.dark-theme .theme-toggle .sun-icon {
+            display: none;  /* Hide sun in dark mode */
+        }
+
+        body.dark-theme .theme-toggle .moon-icon {
+            display: block;  /* Show moon in dark mode */
         }
     </style>
 </head>
