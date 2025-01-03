@@ -1087,6 +1087,8 @@
             width: fit-content;
             align-items: center;
             overflow: visible;
+            animation: dockSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1s forwards;
+            opacity: 0; /* Start hidden */
         }
 
         .dock-section {
@@ -1537,6 +1539,18 @@
         body.dark-theme .theme-toggle .moon-icon {
             opacity: 1;
             visibility: visible;
+        }
+
+        /* Add keyframe animation for dock */
+        @keyframes dockSlideUp {
+            0% {
+                transform: translateX(-50%) translateY(100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(-50%) translateY(0);
+                opacity: 1;
+            }
         }
     </style>
 </head>
