@@ -257,12 +257,13 @@
             font-weight: 200;
             font-size: 20px;
             margin-bottom: 20px;
-            transition: opacity 0.3s, color 0.3s;
+            transition: opacity 0.3s, color 0.3s, transform 0.3s ease;
         }
 
         .links a:hover {
             color: #000;
             opacity: 1;
+            transform: translateX(5px);
         }
 
         .projects {
@@ -1621,6 +1622,13 @@
                     </div>
                 </section>
 
+                <section class="column" aria-label="Writing">
+                    <h2 class="section-title">Writing</h2>
+                    <div class="links">
+                        <a href="#" class="blog-link">Blog</a>
+                    </div>
+                </section>
+
                 <section class="column" aria-label="Skills">
                     <h2 class="section-title">Skills</h2>
                     <div class="skills">
@@ -2088,6 +2096,13 @@
                     toggleOverlay();
                 }
             });
+        });
+    </script>
+
+    <script>
+        document.querySelector('.blog-link').addEventListener('click', (e) => {
+            e.preventDefault();
+            toggleOverlay();
         });
     </script>
 </body>
