@@ -1553,6 +1553,92 @@
                 opacity: 1;
             }
         }
+
+        /* Collaborators section styles */
+        .collaborators-section {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .collaborators-heading {
+            font-size: 14px;
+            color: rgba(0, 0, 0, 0.5);
+            margin-bottom: 15px;
+            font-weight: 200;
+            letter-spacing: 0.02em;
+        }
+
+        .collaborators-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .collaborator {
+            padding: 3px 10px;
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 15px;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .collaborator-name {
+            font-size: 13px;
+            color: rgba(0, 0, 0, 0.5);
+            font-weight: 200;
+            letter-spacing: 0.01em;
+        }
+
+        .collaborator:hover {
+            transform: translateY(-1px);
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .collaborator:hover .collaborator-name {
+            color: rgba(0, 0, 0, 0.7);
+        }
+
+        /* Dark mode styles */
+        body.dark-theme .collaborators-section {
+            border-color: rgba(255, 255, 255, 0.05);
+        }
+
+        body.dark-theme .collaborators-heading {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        body.dark-theme .collaborator {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.05);
+        }
+
+        body.dark-theme .collaborator-name {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        body.dark-theme .collaborator:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        body.dark-theme .collaborator:hover .collaborator-name {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .collaborators-grid {
+                gap: 6px;
+            }
+            
+            .collaborator {
+                padding: 3px 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1683,6 +1769,28 @@
                             <source srcset="11labs/team.jpg" type="image/jpeg">
                             <img src="11labs/team.jpg" alt="Hackathon team" loading="lazy">
                         </picture>
+                    </div>
+                </div>
+
+                <!-- Add collaborators section -->
+                <div class="collaborators-section">
+                    <h4 class="collaborators-heading">Collaborators</h4>
+                    <div class="collaborators-grid">
+                        <a href="https://www.linkedin.com/in/joon-sang-lee-2b3b39a4/" target="_blank" rel="noopener" class="collaborator">
+                            <span class="collaborator-name">Joon Sang-Lee</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/-michael-martin/" target="_blank" rel="noopener" class="collaborator">
+                            <span class="collaborator-name">Michael Martin</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/saifraja/" target="_blank" rel="noopener" class="collaborator">
+                            <span class="collaborator-name">Saif Raja</span>
+                        </a>
+                        <a href="https://www.wangsaputra.co.uk/" target="_blank" rel="noopener" class="collaborator">
+                            <span class="collaborator-name">Samuel Wangsaputra</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/joe-makepeace/" target="_blank" rel="noopener" class="collaborator">
+                            <span class="collaborator-name">Joe Makepeace</span>
+                        </a>
                     </div>
                 </div>
             </div>
