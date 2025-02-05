@@ -272,6 +272,7 @@
             gap: 20px;
         }
 
+        /* Project link styles */
         .project-link {
             display: flex;
             align-items: center;
@@ -280,6 +281,7 @@
             font-weight: 200;
             font-size: 20px;
             position: relative;
+            transform: translateX(0);
         }
 
         /* SVG and text styles */
@@ -295,16 +297,19 @@
             opacity: 1;
         }
 
+        .project-icon {
+            width: 30px;
+            height: 30px;
+            flex-shrink: 0;
+            display: block;
+            transform: translateY(0);
+            will-change: transform;
+        }
+
         /* Dark mode */
         body.dark-theme .project-link svg,
         body.dark-theme .project-link span {
             color: white;
-        }
-
-        /* Icon size */
-        .project-icon {
-            width: 30px;
-            height: 30px;
         }
 
         /* Project link tooltip styles */
